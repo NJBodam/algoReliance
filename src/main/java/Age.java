@@ -17,8 +17,8 @@ public class Age {
                 InputStream inputStream = connection.getInputStream();
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
                 String text = bufferedReader.readLine();
-                text = text.replace("{", "").replace("}", "").
-                        replace("\"","").replace("data:","");
+                text = text.replace("{", "").replace("}", "")
+                        .replace("\"","");
                 String[] arr = text.split(", ");
                 String tempText ="";
                 int count = 0;
