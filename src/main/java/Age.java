@@ -19,18 +19,15 @@ public class Age {
                 String text = bufferedReader.readLine();
                 text = text.replace("{", "").replace("}", "")
                         .replace("\"","");
-                String[] arr = text.split(", ");
-                String tempText ="";
+               // System.err.println(text);
                 int count = 0;
-                for (int i = 0; i<arr.length; i++){
-                    if (arr[i].contains("age=")){
-                        tempText = arr[i].substring(arr[i].indexOf("=")+1);
-                        if (Integer.parseInt(tempText)>= 50){
-                            count++;
-                        }
+                String[] arr = text.split(", ");
+                for (int i = 1; i < arr.length; i++) {
+                    if (i % 2 != 0) {
+                        int num = Integer.parseInt(arr[i].replace("age=", ""));
+                        count = num >= 50 ? count + 1 : count;
                     }
                 }
-
                 System.out.println(count);
 
             } catch (IOException ioEx) {
